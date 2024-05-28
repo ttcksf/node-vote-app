@@ -16,7 +16,6 @@ io.on('connection', (socket) => {
   socket.emit('update', { votingPolls, total });
   socket.on('send-vote', (lang) => {
     total += 1;
-    console.log(lang);
     votingPolls[lang] += 1;
     socket.broadcast.emit('receive-vote', { votingPolls, total });
     socket.emit('update', { votingPolls, total });
